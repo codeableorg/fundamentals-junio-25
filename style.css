@@ -1,0 +1,67 @@
+/* Selector Universal */
+
+* {
+  /* color: tomato; */
+  font-size: 36px;
+  /* font-family: "Franklin Gothic Medium"; */
+}
+
+/* Selectores de Tipo */
+/* h1 {
+  color: orange;
+  font-size: 16px;
+} */
+
+/* h2 {
+  color: red;
+  font-size: 20px;
+} */
+
+/* Selector de Clase */
+
+/* .morado {
+  color: purple;
+}
+
+.texto-grande {
+  font-size: 32px;
+} */
+
+/* Selector de ID */
+
+/* #titulo-principal {
+  background-color: gray;
+} */
+
+/* Selector de Atributo */
+
+/* [href] {
+  color: blue;
+}
+
+[href="hola"] {
+  color: crimson;
+} */
+
+/* [title$="CA"] {
+  color: crimson;
+} */
+
+/* Agrupar o listar selectores */
+
+h2,
+.texto-grande,
+[href="#titulo-principal"],
+[src*="video"] {
+  font-size: 32px;
+}
+
+/* "mi-video"
+
+"video-hd"
+
+"mi-video.mp4" */
+
+h1 {
+  color: red;
+}

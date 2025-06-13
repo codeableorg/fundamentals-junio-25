@@ -3,16 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Document</title>
-    <style>
-      table * {
-        border: 1px solid black;
-      }
-    </style>
   </head>
   <body>
     <header>
-      <h1 id="titulo-principal">Términos y Condiciones de FullStock</h1>
+      <h1 class="texto-grande" id="titulo-principal">
+        Términos y Condiciones de FullStock
+      </h1>
       <p>
         <em>
           ¡Bienvenidos a FullStock, la tienda e-commerce favorita de los
@@ -25,7 +23,7 @@
       <section>
         <h2>Acerca de Nosotros</h2>
 
-        <p>
+        <p style="color: green; font-size: 20px">
           FullStock es una tienda
           <strong>
             dedicada a ofrecer artículos de calidad para desarrolladores </strong
@@ -58,16 +56,16 @@
       <section>
         <h2>Proceso de Compra</h2>
         <ol>
-          <li>
+          <li class="morado">
             <strong>Selecciona tus productos:</strong> Navega por nuestras
             categorías de <strong>polos</strong>, <strong>tazas</strong>, y
             <strong>stickers</strong>.
           </li>
-          <li>
+          <li class="texto-grande">
             <strong>Añade al carrito:</strong> Haz clic en el botón
             <em>Agregar al Carrito</em> en la página de producto.
           </li>
-          <li>
+          <li class="morado">
             <strong>Completa el pago:</strong> Llena el formulario de pago y
             confirma tu compra. ¡Es fácil!
           </li>
@@ -75,8 +73,10 @@
       </section>
 
       <section>
-        <h2>Métodos de Pago</h2>
-        <p>Aceptamos los siguientes métodos de pago:</p>
+        <h2 class="texto-grande">Métodos de Pago</h2>
+        <p class="morado texto-grande">
+          Aceptamos los siguientes métodos de pago:
+        </p>
         <!-- Tabla -->
         <table>
           <thead>
@@ -88,7 +88,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>Celda de dos filas</td>
+              <td class="morado">Celda de dos filas</td>
               <td>Dato 1</td>
               <td>Dato 2</td>
             </tr>
@@ -109,11 +109,11 @@
               <td>1-2 días hábiles</td>
             </tr>
           </tbody>
-          <tfoot>
+          <!-- <tfoot>
             <tr>
               <td colspan="3">1</td>
             </tr>
-          </tfoot>
+          </tfoot> -->
         </table>
       </section>
 
@@ -125,18 +125,18 @@
         </p>
         <!-- Lista de Definiciones -->
         <dl>
-          <dt>
+          <dt title="AAAA">
             <strong>Devolución estándar:</strong>
           </dt>
           <dd>
             Te devolvemos tu dinero dentro de los 30 días posteriores a la
             compra.
           </dd>
-          <dt><strong>Devolución por defectos:</strong></dt>
+          <dt title="ABBA"><strong>Devolución por defectos:</strong></dt>
           <dd>
             Si tu producto tiene algún defecto, ¡lo reemplazamos sin preguntas!
           </dd>
-          <dt><strong>Política de no devolución:</strong></dt>
+          <dt title="ACCA"><strong>Política de no devolución:</strong></dt>
           <dd>
             Productos usados o dañados por mal uso no aplican para devolución.
           </dd>
