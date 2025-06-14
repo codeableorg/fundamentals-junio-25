@@ -49,12 +49,12 @@
 
 /* Agrupar o listar selectores */
 
-h2,
+/* h2,
 .texto-grande,
 [href="#titulo-principal"],
 [src*="video"] {
   font-size: 32px;
-}
+} */
 
 /* "mi-video"
 
@@ -62,6 +62,69 @@ h2,
 
 "mi-video.mp4" */
 
-h1 {
+/* h1 {
   color: red;
+} */
+
+/* Selector de Pseudo Clase */
+
+/* h2:hover {
+  color: blue;
+}
+
+li:active {
+  color: orange;
+}
+
+:focus {
+  border-style: double;
+}
+
+a:visited {
+  color: orange;
+} */
+
+td:first-child,
+th:first-child {
+  background-color: gray;
+}
+
+/* tr:nth-child(3) {
+  background-color: crimson;
+} */
+
+/* li:not(:first-child) {
+  color: red;
+} */
+
+/* :first-child
+
+:not(p)
+
+:not(.morado) */
+
+/* Selector de Pseudo Elementos */
+
+code::before {
+  content: "`";
+}
+
+code::after {
+  content: "`";
+}
+
+::first-letter {
+  text-transform: lowercase;
+}
+
+p::first-line {
+  letter-spacing: 3px;
+}
+
+::selection {
+  text-decoration: underline;
+}
+
+::marker {
+  color: crimson;
 }
