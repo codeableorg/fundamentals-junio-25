@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  /* box-sizing: content-box; */
+
+  /* border-width: 2px; */
+  /* border-style: inset; */
+  /* border-color: blue; */
+  /* border-top: 3px solid red;
+  border-right: 3px ridge;
+  border-bottom: 3px double blue;
+  border-left: 2px ridge purple; */
+
+  border: 3px double orangered;
+  border-radius: 10px;
+
+  background-color: purple;
+
+  /* padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 15px; */
+
+  /* padding: 10px 20px 10px 15px; */
+  /* padding: 10px 15px 20px; */
+  padding: 10px 20px;
+  /* padding: 5px; */
+
+  /* margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-left: 15px; */
+
+  /* margin: 30px 15px 10px; */
+  margin: 20px auto;
+
+  /* block (posicionamiento vertical) */
+  /* arriba y abajo */
+  /* margin-block-start
+    margin-top
+    margin-block-end
+    margin-bottom  */
+
+  /* inline (posicionamiento horizontal) */
+  /* izquierda y derecha  */
+  /* margin-left: ;
+  margin-inline-start:
+  margin-right: ;
+  margin-inline-end: */
+
+  width: 250px;
+  /* height: 150px; */
+}
+
+h2 {
+  /* font-size: 2em; */
+  font-size: initial;
+  font-size: 2em;
+
+  font-family: monospace;
+}
+
+p {
+  font-family: monospace;
+  /* font-size: 16px; */
+  /* line-height: 1.5; */
+  /* font-weight: 100; */
+  /* line-height: 24px; */
+  /* 16px * 1.5 = 24px  */
+
+  /* width: 50vw; */
+  /* 500px * 50% = 250px */
+
+  width: 60vmin;
+  /* 60% min(500px, 300px) */
+  /* 60% (300px) = 180px */
+}
+
+section {
+  border: 1px solid red;
+  width: 80%;
+  padding: 5%;
+  margin-block-start: 5%;
+  /* color: initial; */
+}

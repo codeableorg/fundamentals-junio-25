@@ -1,15 +1,16 @@
 /* Selector Universal */
 
-* {
-  /* color: tomato; */
+/* * {
+  color: tomato;
   font-size: 36px;
-  /* font-family: "Franklin Gothic Medium"; */
-}
+  font-family: "Franklin Gothic Medium";
+
+} */
 
 /* Selectores de Tipo */
-/* h1 {
-  color: orange;
-  font-size: 16px;
+
+/* h2 {
+  color: blue;
 } */
 
 /* h2 {
@@ -17,13 +18,50 @@
   font-size: 20px;
 } */
 
+/* main {
+  color: red;
+  margin-top: 40px;
+  margin-bottom: 60px;
+} */
+
+/* section {
+  color: red;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  color: orange;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: inherit;
+  margin-top: inherit;
+  margin-bottom: inherit;
+} */
+
+/* body {
+  background-color: steelblue;
+}
+
+h1 {
+  color: orange;
+  font-size: 16px;
+} */
+
 /* Selector de Clase */
+
+/* .blue {
+  color: blue;
+} */
 
 /* .morado {
   color: purple;
-}
+} */
 
-.texto-grande {
+/* .texto-grande {
   font-size: 32px;
 } */
 
@@ -32,6 +70,15 @@
 /* #titulo-principal {
   background-color: gray;
 } */
+
+/* 
+1. !important
+2. Atributo style
+3. ID
+4. Clase
+5. Tipo 
+6. Universal  
+*/
 
 /* Selector de Atributo */
 
@@ -67,8 +114,8 @@
 } */
 
 /* Selector de Pseudo Clase */
-
-/* h2:hover {
+/* 
+h2:hover {
   color: blue;
 }
 
@@ -82,12 +129,12 @@ li:active {
 
 a:visited {
   color: orange;
-} */
+}
 
 td:first-child,
 th:first-child {
   background-color: gray;
-}
+} */
 
 /* tr:nth-child(3) {
   background-color: crimson;
@@ -105,7 +152,7 @@ th:first-child {
 
 /* Selector de Pseudo Elementos */
 
-code::before {
+/* code::before {
   content: "`";
 }
 
@@ -127,4 +174,26 @@ p::first-line {
 
 ::marker {
   color: crimson;
-}
+} */
+
+/* Combinar Selectores */
+
+/* 1. Descendientes  */
+/* thead th {
+  background-color: tomato;
+} */
+
+/* 2. Hijos directos  */
+/* tbody > tr {
+  background-color: burlywood;
+} */
+
+/* 3. Hermanos */
+/* .referencial ~ td {
+  color: blueviolet;
+} */
+
+/* 4. Hermano adyance directo */
+/* .referencial2 + td {
+  color: teal;
+} */
