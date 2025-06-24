@@ -1,0 +1,40 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: row-reverse;
+  flex-direction: column;
+  flex-direction: column-reverse; */
+
+  flex-wrap: wrap;
+  /* flex-wrap: nowrap;
+  flex-wrap: wrap-reverse; */
+
+  justify-content: flex-start;
+  /* align-items: baseline; */
+
+  /* align-content: space-around; */
+
+  gap: 10px;
+
+  border: 2px solid red;
+  padding: 10px;
+  /* height: 250px; */
+}
+
+p {
+  margin: 0;
+}
+
+div > p {
+  border: 2px solid blue;
+  width: 200px;
+  height: 200px;
+}
+
+.segundo {
+  height: 100px;
+}
+
+/* .cuarto {
+  font-size: 32px;
+} */
