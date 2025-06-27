@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:wght@600&display=swap");
 
+:root {
+  --text-color: #171717;
+
+  /* --xx-small: 4px;
+  --x-small: 8px;
+  --small: 12px;
+  --regular: 16px;
+  --large: 20px;
+  --x-large: 24px;
+  --xx-large: 28px; */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,7 +23,7 @@ h1 {
   font-weight: 800;
   font-size: 36px;
   line-height: 40px;
-  color: #171717;
+  color: var(--text-color);
 
   margin-bottom: 32px;
 }
@@ -22,7 +34,7 @@ header > p {
   font-size: 16px;
   font-style: italic;
   line-height: 28px;
-  color: #171717;
+  color: var(--text-color);
 
   margin-top: 20px;
   margin-bottom: 20px;
@@ -38,7 +50,7 @@ h2 {
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #171717;
+  color: var(--text-color);
 
   margin-top: 48px;
   margin-bottom: 24px;
@@ -49,7 +61,7 @@ p {
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
-  color: #171717;
+  color: var(--text-color);
 
   margin-top: 20px;
   margin-bottom: 20px;

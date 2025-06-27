@@ -1,3 +1,31 @@
-@media (condición) {
-  /* Estilos a aplicar si la condición es verdadera */
+:root {
+  /* Custom Properties */
+  --spacing-4: calc(0.25rem * 4); /* 16px */
+  --spacing-6: calc(0.25rem * 6); /* 24px */
+  --spacing-8: calc(0.25rem * 8); /* 32px */
+
+  --width-7xl: 80rem; /* 1280px */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* --Estilos decorativos-- */
+.content {
+  background-color: tomato;
+  color: white;
+}
+
+body .container {
+  background-color: #c6ce92;
+}
+/* ----------------------- */
+
+.container {
+  padding-inline: var(--spacing-8);
+  /* 1344 */
+  max-width: var(--width-7xl);
+  margin-inline: auto;
 }
