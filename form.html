@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      form button {
+        width: fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    <!--     
+    <h1>Google</h1>
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" />
+      <button>Buscar con Google</button>
+    </form> 
+    -->
+
+    <h1>{Codeable}</h1>
+
+    <form target="_blank">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" placeholder="John" name="nombre" />
+
+      <label for="apellido">Apellido</label>
+      <input id="apellido" type="text" placeholder="Doe" name="apellido" />
+
+      <label for="correo">Correo</label>
+      <input
+        id="correo"
+        type="email"
+        placeholder="example@mail.com"
+        name="correo"
+      />
+
+      <label for="contraseña">Contraseña</label>
+      <input
+        id="contraseña"
+        type="password"
+        placeholder="******"
+        name="contraseña"
+      />
+
+      <!-- <label for="pais">País</label>
+      <input id="pais" type="" placeholder="Perú" /> -->
+
+      <div>
+        <button>Enviar</button>
+        <button type="reset">Resetear</button>
+      </div>
+    </form>
+
+    <!-- <button type="button" onclick="alert('Hola')">Haz clic</button> -->
+  </body>
+</html>

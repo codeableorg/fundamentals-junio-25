@@ -21,7 +21,7 @@ p {
 */
 
 .categories-component {
-  width: 1280px;
+  max-width: 1280px;
   padding: 0 2rem;
   margin: 0 auto;
 }
@@ -49,6 +49,7 @@ p {
 .category-container {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .category-card {
