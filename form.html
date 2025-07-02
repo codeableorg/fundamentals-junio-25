@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
+    <!-- <style>
       form {
         padding: 10px;
         display: flex;
@@ -15,7 +15,7 @@
       form button {
         width: fit-content;
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <!--     
@@ -26,14 +26,26 @@
     </form> 
     -->
 
-    <h1>{Codeable}</h1>
+    <h1 title="Escuela de programacion">{Codeable}</h1>
 
     <form target="_blank">
-      <label for="nombre">Nombre</label>
-      <input id="nombre" type="text" placeholder="John" name="nombre" />
+      <!-- <label for="nombre">Nombre</label>
+      <input
+        id="nombre"
+        type="text"
+        placeholder="John"
+        name="nombre"
+        title="Ingrese por lo menos 1 nombre"
+      />
 
       <label for="apellido">Apellido</label>
-      <input id="apellido" type="text" placeholder="Doe" name="apellido" />
+      <input
+        id="apellido"
+        type="text"
+        placeholder="Doe"
+        name="apellido"
+        disabled
+      />
 
       <label for="correo">Correo</label>
       <input
@@ -41,6 +53,7 @@
         type="email"
         placeholder="example@mail.com"
         name="correo"
+        required
       />
 
       <label for="contraseña">Contraseña</label>
@@ -49,17 +62,85 @@
         type="password"
         placeholder="******"
         name="contraseña"
+        required
+      /> -->
+
+      <!-- autocomplete  -->
+
+      <!-- <label for="fecha-nacimiento">Fecha de nacimiento</label>
+      <input
+        id="fecha-nacimiento"
+        type="date"
+        value="2000-01-01"
+        name="nacimiento"
+        autofocus
       />
 
-      <!-- <label for="pais">País</label>
-      <input id="pais" type="" placeholder="Perú" /> -->
+      <label>Perfil de GitHub</label>
+      <input type="url" name="github" /> -->
+
+      <!-- <input name="numero" type="number" min="0" max="100" step="5" /> -->
+
+      <!-- <label for="">Volumen</label>
+      <input
+        title="Rango: 0 - 100"
+        name="rango"
+        type="range"
+        min="0"
+        max="100"
+      /> -->
+
+      <!-- <input type="radio" name="genero" value="female" />
+      <label>Femenino</label>
+      <input type="radio" name="genero" value="male" />
+      <label>Masculino</label>
+      <input type="radio" name="genero" value="not-specified" />
+      <label>Prefiero no especificar</label> -->
+
+      <fieldset>
+        <legend>¿Qué sistema operativo usas?</legend>
+        <label
+          ><input
+            type="radio"
+            name="sistema"
+            value="windows"
+            checked
+          />Windows</label
+        >
+        <label><input type="radio" name="sistema" value="macos" />MacOS</label>
+        <label><input type="radio" name="sistema" value="linux" />Linux</label>
+        <label><input type="radio" name="sistema" value="otro" />Otro</label>
+      </fieldset>
+
+      <input type="checkbox" name="acepta-terminos" value="si" checked />
+      <label>Acepta los terminos y condiciones de mi pagina web?</label>
+
+      <fieldset>
+        <legend>¿Qué tecnologías dominas?</legend>
+        <label><input type="checkbox" name="html" value="si" />HTML</label>
+        <label><input type="checkbox" name="css" value="si" />CSS</label>
+        <label><input type="checkbox" name="js" value="si" />JavaScript</label>
+        <label><input type="checkbox" name="node" value="si" />Node.js</label>
+        <label
+          ><input type="checkbox" name="express" value="si" />Express</label
+        >
+        <label
+          ><input
+            type="checkbox"
+            name="postgresql"
+            value="si"
+          />PostgreSQL</label
+        >
+        <label><input type="checkbox" name="react" value="si" />React</label>
+        <label
+          ><input type="checkbox" name="tw" value="si" />Tailwind CSS</label
+        >
+      </fieldset>
 
       <div>
         <button>Enviar</button>
         <button type="reset">Resetear</button>
       </div>
     </form>
-
-    <!-- <button type="button" onclick="alert('Hola')">Haz clic</button> -->
   </body>
 </html>
