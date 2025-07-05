@@ -28,7 +28,7 @@
 
     <h1 title="Escuela de programacion">{Codeable}</h1>
 
-    <form target="_blank">
+    <form>
       <!-- <label for="nombre">Nombre</label>
       <input
         id="nombre"
@@ -97,7 +97,7 @@
       <input type="radio" name="genero" value="not-specified" />
       <label>Prefiero no especificar</label> -->
 
-      <fieldset>
+      <!-- <fieldset>
         <legend>¿Qué sistema operativo usas?</legend>
         <label
           ><input
@@ -135,8 +135,41 @@
         <label
           ><input type="checkbox" name="tw" value="si" />Tailwind CSS</label
         >
-      </fieldset>
+      </fieldset> -->
 
+      <label for="pais">País de nacimiento:</label>
+      <select name="pais" id="pais">
+        <option value="">Selecciona uno</option>
+        <optgroup label="Sur América">
+          <option value="AR" label="Argentina"></option>
+          <option value="BO">Bolivia</option>
+          <option value="BR">Brasil</option>
+          <option value="CL">Chile</option>
+          <option value="CO">Colombia</option>
+          <option value="EC">Ecuador</option>
+          <option value="PY">Paraguay</option>
+          <option value="PE" disabled>Perú</option>
+          <option value="UY">Uruguay</option>
+          <option value="VE">Venezuela</option>
+        </optgroup>
+        <optgroup label="Centro América">
+          <option value="">Panama</option>
+          <option value="">Costa Rica</option>
+          <option value="">Cuba</option>
+        </optgroup>
+        <optgroup label="Norte América">
+          <option value="">México</option>
+          <option value="">Estados Unidos</option>
+          <option value="">Canadá</option>
+        </optgroup>
+      </select>
+      <br />
+      <br />
+
+      <!-- <label for="">Cuentamos algo mas sobre ti:</label><br />
+      <textarea name="comentarios-extras" id="" rows="5" cols="50"></textarea> -->
+
+      <input type="text" />
       <div>
         <button>Enviar</button>
         <button type="reset">Resetear</button>

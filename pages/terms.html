@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/terms.css" />
     <title>Términos y Condiciones | FullStock</title>
+    <style>
+      .fixed {
+        position: fixed;
+        inset: auto 5px 5px auto;
+      }
+
+      .sticky-top {
+        border: 2px solid blue;
+        position: sticky;
+        top: 0px;
+      }
+
+      .sticky-bottom {
+        border: 2px solid blue;
+        position: sticky;
+        bottom: 0px;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -69,11 +87,11 @@
         </ol>
       </section>
 
-      <section>
-        <h2>Métodos de Pago</h2>
+      <section style="border: 1px solid red">
+        <h2 class="sticky-top">Métodos de Pago</h2>
         <p>Aceptamos los siguientes métodos de pago:</p>
         <!-- Tabla -->
-        <table>
+        <table class="sticky-bottom">
           <thead>
             <tr>
               <th>Método de Pago</th>
@@ -138,12 +156,13 @@
           En FullStock nos enorgullecemos de la calidad de nuestros productos.
         </p>
         <!-- Guarantee -->
-        <figure>
+        <figure style="border: 1px solid red">
           <img
             src="/images/guarantee-stamp.png"
             alt="Sello de garantía"
             width="200"
             height="200"
+            class="sticky"
           />
           <figcaption>
             Garantía de Satisfacción: Si no te gusta, ¡te devolvemos el dinero!
@@ -177,7 +196,7 @@
     </main>
     <footer>
       <p>&copy; 2023 FullStock. Todos los derechos reservados.</p>
-      <a href="#titulo-principal">Volver arriba</a>
+      <a href="#titulo-principal" class="fixed">Volver arriba</a>
     </footer>
   </body>
 </html>
