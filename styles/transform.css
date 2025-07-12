@@ -39,23 +39,32 @@ section {
 
 .scale .transform {
   /* Activar una a la vez */
-  transform: scale(0.75);
+  transform: scale(1.3);
   /* transform: scale(2, 1.2); */
   /* transform: scaleX(1.5); */
   /* transform: scaleY(1.2); */
 }
+
+
+/* Unidades angulares (deg, rad, grad, turn) */
 
 .rotate .transform {
   /* Activar una a la vez */
   transform: rotate(45deg);
   /* transform: rotate(0.15turn); */
 
-  transform-origin: center;
+  transform-origin: 0px 0px;
 }
 
 .skew .transform {
   /* Activar una a la vez */
   transform: skew(10deg, -20deg);
-  /* transform: skewX(10deg); */
+  /* transform: skewX(5deg); */
   /* transform: skewY(-20deg); */
+}
+
+.multi-transform .transform {
+  /* transform: translateX(50px) rotate(45deg) scale(1.5); */
+  /* transform: rotate(45deg) scale(1.5) translateX(50px); */
+  transform: scale(1.5) translateX(50px) rotate(45deg);
 }

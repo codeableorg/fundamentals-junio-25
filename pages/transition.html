@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition</title>
+    <style>
+      body {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: teal;
+      }
+
+      .button {
+        border: none;
+        border-radius: 8px;
+        padding: 12px 16px;
+        background-color: Lavender;
+        font-weight: 500;
+        font-size: 1.25rem;
+
+        /* Definimos la propiedad a transicionar y el tiempo que tomará */
+        transition: transform 5000ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition-delay: 2000ms;
+      }
+
+      .button:hover {
+        transform: rotate(360deg);
+        /* background-color: Plum; */
+      }
+    </style>
+  </head>
+  <body>
+    <button class="button">Hover me!</button>
+  </body>
+</html>
