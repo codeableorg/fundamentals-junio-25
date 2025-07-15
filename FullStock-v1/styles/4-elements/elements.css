@@ -21,6 +21,10 @@ h6 {
   font-family: var(--family-heading);
 }
 
+p {
+  color: var(--secondary-foreground);
+}
+
 code {
   font-family: var(--family-code);
 }
