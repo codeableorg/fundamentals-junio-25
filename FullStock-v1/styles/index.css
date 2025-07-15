@@ -11,3 +11,7 @@
 /* 4. Elements */
 
 @import url(4-elements/elements.css);
+
+/* 6. Components */
+
+@import url(6-components/category-card.css);

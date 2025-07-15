@@ -41,8 +41,10 @@
   --neutral-8: hsl(240 11% 76%);
   --neutral-9: hsl(240 9% 59%);
   --neutral-10: hsl(240 8% 53%);
-  --neutral-11: hsl(240 7% 41%);
-  --neutral-12: hsl(240 10% 14%);
+  /* --neutral-11: hsl(240 7% 41%); */
+  --neutral-11: hsl(220deg 6% 40%);
+  /* --neutral-12: hsl(240 10% 14%); */
+  --neutral-12: hsl(210deg 13% 13%);
   --neutral-a1: hsl(240 100% 33% / 0.01);
   --neutral-a2: hsl(240 100% 33% / 0.02);
   --neutral-a3: hsl(240 100% 20% / 0.06);
