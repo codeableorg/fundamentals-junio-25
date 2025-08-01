@@ -1,17 +1,17 @@
 // Expresion de Funcion (Function Expression)
 
-// const multiplicarDosNumeros = function (num1, num2) {
-//   const resultado = num1 * num2;
-//   return resultado;
-// };
+const multiplicarDosNumeros = function (num1, num2) {
+  const resultado = num1 * num2;
+  return resultado;
+};
 
 // let multiplicar = multiplicarDosNumeros;
 
 // Declaracion de una funcion (Function Declaration)
-// function sumarDosNumeros(n1, n2) {
-//   const suma = n1 + n2;
-//   return suma;
-// }
+function sumarDosNumeros(n1, n2) {
+  const suma = n1 + n2;
+  return suma;
+}
 
 // llaves { }
 // 1. para crear objetos
@@ -45,9 +45,9 @@
 
 // let nombre = "Sebastian";
 
-// function saludar(nombre) {
-//   console.log(`Hola ${nombre}`);
-// }
+function saludar(nombre) {
+  console.log(`Hola ${nombre}`);
+}
 
 // saludar(nombre);
 

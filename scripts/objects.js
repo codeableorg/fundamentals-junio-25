@@ -18,15 +18,15 @@
 // Actualizar un valor dentro del objeto:
 // peru.habitantes = 33000000;
 
-let sherlock = {
-  apellido: "Holmes",
-  residencia: { ciudad: "Londres" },
-};
+// let sherlock = {
+//   apellido: "Holmes",
+//   residencia: { ciudad: "Londres" },
+// };
 
-let john = {
-  apellido: "Watson",
-  direccion: sherlock.direccion,
-};
+// let john = {
+//   apellido: "Watson",
+//   direccion: sherlock.direccion,
+// };
 
 // console.log(sherlock.direccion.ciudad); // "Londres"
 // sherlock.direccion === john.direccion; // true
@@ -40,3 +40,12 @@ let john = {
 // console.log(sherlock.direccion.ciudad); // ?
 // console.log(john.apellido); // ?
 // console.log(john.direccion.ciudad); // ?
+
+const persona = {
+  nombre: "André",
+  saludar: function () {
+    console.log("¡Hola!");
+  },
+};
+
+persona.saludar();
