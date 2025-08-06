@@ -45,9 +45,9 @@ function sumarDosNumeros(n1, n2) {
 
 // let nombre = "Sebastian";
 
-function saludar(nombre) {
-  console.log(`Hola ${nombre}`);
-}
+// function saludar(nombre) {
+//   console.log(`Hola ${nombre}`);
+// }
 
 // saludar(nombre);
 
