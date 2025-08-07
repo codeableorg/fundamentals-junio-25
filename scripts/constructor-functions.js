@@ -20,15 +20,10 @@ animal.jugar = function (tiempo) {
 };
 */
 
+// Funciones Constructoras:
 function Animal(nombre, energia) {
-  //   const animal = {};
-  //   animal.__proto__ = metodosAnimal;
-  const animal = Object.create(Animal.prototype);
-
-  animal.nombre = nombre;
-  animal.energia = energia;
-
-  return animal;
+  this.nombre = nombre;
+  this.energia = energia;
 }
 
 Animal.prototype.comer = function (cantidad) {
@@ -47,6 +42,6 @@ Animal.prototype.jugar = function (tiempo) {
 };
 
 // Instancia o crear una instancia:
-const leon = Animal("Leonardo", 100);
-const elefante = Animal("Dumbo", 300);
-const jirafa = Animal("Rosi", 60);
+const leon = new Animal("Leonardo", 100);
+const elefante = new Animal("Dumbo", 300);
+const jirafa = new Animal("Rosi", 60);
