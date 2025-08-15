@@ -43,7 +43,16 @@ class Perro extends Animal {
     super(nombre, energia);
     this.raza = raza;
   }
+
+  jugar(tiempo) {
+    console.log(`${this.nombre} mueve la cola de felicidad.`);
+    super.jugar(tiempo / 2);
+    // super.comer(tiempo / 2);
+    // super.dormir(tiempo / 2);
+  }
 }
+
+const snoopy = new Perro("Snoopy", 100, "Beagle");
 
 // const leo = new Animal("Leonardo", 100);
 // const lazy = new Animal("Lazy", 10);
