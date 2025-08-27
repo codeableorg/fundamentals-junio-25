@@ -1,4 +1,4 @@
-function frontendWrapper() {
+(function () {
   // variables y funciones para manejar el DOM:
   var input = document.getElementById("nueva-tarea");
   var buttonAgregar = document.getElementById("agregar");
@@ -34,6 +34,4 @@ function frontendWrapper() {
   buttonBorrar.onclick = handleBorrar;
 
   mostrarTareas();
-}
-
-frontendWrapper();
+})();

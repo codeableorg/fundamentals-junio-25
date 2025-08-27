@@ -1,6 +1,6 @@
 // importaciones (imports) No estan presentes en este Modulo
 
-function backendWrapper() {
+(function () {
   // código interno
   // variables y funciones para manejar tareas:
   var tareas = ["tarea 1", "tarea 2", "tarea 3"];
@@ -21,6 +21,4 @@ function backendWrapper() {
   APP.agregarTarea = agregarTarea;
   APP.borrarTareas = borrarTareas;
   APP.obtenerTareas = obtenerTareas;
-}
-
-backendWrapper();
+})();
