@@ -26,7 +26,7 @@ function requestListener(request, response) {
                           <title>Notes | Inicio</title>
                         </head>
                         <body>
-                          <h1>Bienvenido a Notas!</h1>
+                          <h1>Hola!</h1>
                           <a href="/notes">Ver mis notas</a>
                         </body>
                       </html>`);
