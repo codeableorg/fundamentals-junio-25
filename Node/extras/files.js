@@ -10,7 +10,7 @@ import fs from "node:fs";
 //   const notes = JSON.parse(content);
 // });
 
-const nuevaNota = { id: 10, content: "bla bla bla" };
+const nuevaNota = { id: 9, content: "bla bla bla" };
 
 // Escritura de una archivo
 fs.writeFile("./notes.json", JSON.stringify(nuevaNota), (error) => {
