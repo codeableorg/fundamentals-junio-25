@@ -8,17 +8,10 @@ function validateUrl(url) {
   return segments[0] === "notes" && segments.length === 2;
 }
 
-function requestListener(request, response) {
-  console.log(request.url);
-  console.log(request.method); // "GET", "POST", etc
-
-  const method = request.method;
-
-  if (method === "GET") {
-    if (request.url === "/") {
-      // Flecha 1
-      response.writeHead(200, { "Content-Type": "text/html" });
-      response.write(`<!DOCTYPE html>
+function homeHandler(_req, res) {
+  // Flecha 1
+  res.writeHead(200, { "Content-Type": "text/html" });
+  res.write(`<!DOCTYPE html>
                       <html lang="en">
                         <head>
                           <meta charset="UTF-8" />
@@ -30,23 +23,24 @@ function requestListener(request, response) {
                           <a href="/notes">Ver mis notas</a>
                         </body>
                       </html>`);
-      response.end();
-    } else if (request.url === "/notes") {
-      // Flecha 2
+  res.end();
+}
 
-      fs.readFile("./notes.json", "utf8", (e, content) => {
-        if (e) {
-          console.log(e.message);
-          return;
-        }
+function notesHandler(_req, res) {
+  // Flecha 2
+  fs.readFile("./src/notes.json", "utf8", (e, content) => {
+    if (e) {
+      console.log(e.message);
+      return;
+    }
 
-        const notes = JSON.parse(content);
-        const liNotes = notes.map(
-          (note) => `<li><a href="/notes/${note.id}">${note.content}</a></li>`
-        );
+    const notes = JSON.parse(content);
+    const liNotes = notes.map(
+      (note) => `<li><a href="/notes/${note.id}">${note.content}</a></li>`
+    );
 
-        response.writeHead(200, { "Content-Type": "text/html" });
-        response.write(`<!DOCTYPE html>
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write(`<!DOCTYPE html>
                         <html lang="en">
                           <head>
                             <meta charset="UTF-8" />
@@ -59,26 +53,28 @@ function requestListener(request, response) {
                             <a href="/new-note">Crear nueva nota</a>
                           </body>
                         </html>`);
-        response.end();
-      });
-    } else if (validateUrl(request.url)) {
-      // Flecha 3
-      const segments = request.url.split("/");
-      segments.shift();
-      const noteId = Number(segments.at(1));
+    res.end();
+  });
+}
 
-      fs.readFile("./notes.json", "utf8", (e, content) => {
-        if (e) {
-          console.log(e.message);
-          return;
-        }
+function noteHandler(req, res) {
+  // Flecha 3
+  const segments = req.url.split("/");
+  segments.shift();
+  const noteId = Number(segments.at(1));
 
-        const notes = JSON.parse(content);
-        const note = notes.find((note) => note.id === noteId);
+  fs.readFile("./src/notes.json", "utf8", (e, content) => {
+    if (e) {
+      console.log(e.message);
+      return;
+    }
 
-        if (note) {
-          response.writeHead(200, { "Content-Type": "text/html" });
-          response.write(`<!DOCTYPE html>
+    const notes = JSON.parse(content);
+    const note = notes.find((note) => note.id === noteId);
+
+    if (note) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write(`<!DOCTYPE html>
                           <html lang="en">
                             <head>
                               <meta charset="UTF-8" />
@@ -95,9 +91,9 @@ function requestListener(request, response) {
                               <a href="/notes">Volver a todas las notas</a>
                             </body>
                           </html>`);
-        } else {
-          response.writeHead(400, { "Content-Type": "text/html" });
-          response.write(`<!DOCTYPE html>
+    } else {
+      res.writeHead(400, { "Content-Type": "text/html" });
+      res.write(`<!DOCTYPE html>
                           <html lang="en">
                             <head>
                               <meta charset="UTF-8" />
@@ -109,13 +105,15 @@ function requestListener(request, response) {
                               <p>Nota no encontrada</p>
                             </body>
                           </html>`);
-        }
-        response.end();
-      });
-    } else if (request.url === "/new-note") {
-      // Flecha 4
-      response.writeHead(200, { "Content-Type": "text/html" });
-      response.write(`<!DOCTYPE html>
+    }
+    res.end();
+  });
+}
+
+function formHandler(_req, res) {
+  // Flecha 4
+  res.writeHead(200, { "Content-Type": "text/html" });
+  res.write(`<!DOCTYPE html>
                       <html lang="en">
                         <head>
                           <meta charset="UTF-8" />
@@ -133,46 +131,68 @@ function requestListener(request, response) {
                           </form>
                         </body>
                       </html>`);
-      response.end();
+  res.end();
+}
+
+function createNoteHandler(req, res) {
+  // Flecha 5
+  let body = "";
+
+  req.on("data", (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on("end", () => {
+    // console.log(body); // "new-note=mi+nueva+nota"
+    fs.readFile("./src/notes.json", "utf8", (e, content) => {
+      if (e) {
+        console.log(e.message);
+        return;
+      }
+
+      const notes = JSON.parse(content);
+      const newId = notes.length + 1;
+      const noteContent = body.substring(9).replaceAll("+", " ");
+      const newNote = { id: newId, content: noteContent };
+      notes.push(newNote);
+
+      fs.writeFile("./src/notes.json", JSON.stringify(notes), (e) => {
+        if (e) {
+          console.log(e.message);
+        }
+      });
+    });
+  });
+
+  res.writeHead(303, { Location: "/notes" });
+  res.end();
+}
+
+function requestListener(request, response) {
+  console.log(request.url);
+  console.log(request.method); // "GET", "POST", etc
+
+  const method = request.method;
+
+  if (method === "GET") {
+    if (request.url === "/") {
+      homeHandler(request, response);
+    } else if (request.url === "/notes") {
+      notesHandler(request, response);
+    } else if (validateUrl(request.url)) {
+      noteHandler(request, response);
+    } else if (request.url === "/new-note") {
+      formHandler(request, response);
     }
   } else if (method === "POST") {
     if (request.url === "/notes") {
-      // Flecha 5
-      let body = "";
-
-      request.on("data", (chunk) => {
-        body += chunk.toString();
-      });
-
-      request.on("end", () => {
-        // console.log(body); // "new-note=mi+nueva+nota"
-        fs.readFile("./notes.json", "utf8", (e, content) => {
-          if (e) {
-            console.log(e.message);
-            return;
-          }
-
-          const notes = JSON.parse(content);
-          const newId = notes.length + 1;
-          const noteContent = body.substring(9).replaceAll("+", " ");
-          const newNote = { id: newId, content: noteContent };
-          notes.push(newNote);
-
-          fs.writeFile("./notes.json", JSON.stringify(notes), (e) => {
-            if (e) {
-              console.log(e.message);
-            }
-          });
-        });
-      });
-
-      response.writeHead(303, { Location: "/notes" });
-      response.end();
+      createNoteHandler(request, response);
     }
   }
 }
 
 const server = http.createServer(requestListener);
+
 server.listen(5500, () => {
   console.log("El servidor ya esta escuchando!");
 });
