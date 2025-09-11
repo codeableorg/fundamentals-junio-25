@@ -1,71 +1,62 @@
 import express from "express";
 import fs from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 5500;
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
+async function getNotes() {
+  const content = await fs.readFile("./src/notes.json", "utf8");
+  return JSON.parse(content);
+}
+
+async function saveNotes(notes) {
+  await fs.writeFile("./src/notes.json", JSON.stringify(notes, null, 2));
+}
+
 function homeHandler(_req, res) {
   res.render("index");
 }
 
-function notesHandler(_req, res) {
-  const fileContentPromise = fs.readFile("./src/notes.json", "utf8");
-  fileContentPromise.then((content) => {
-    const notes = JSON.parse(content);
-    res.render("notes", { notes });
-  });
+async function notesHandler(_req, res) {
+  const notes = await getNotes();
+  res.render("notes", { notes });
 }
 
-function noteHandler(req, res) {
+async function noteHandler(req, res) {
   const noteId = Number(req.params.id);
+  const notes = await getNotes();
+  const note = notes.find((note) => note.id === noteId);
 
-  const fileContentPromise = fs.readFile("./src/notes.json", "utf8");
-  fileContentPromise.then((content) => {
-    const notes = JSON.parse(content);
-    const note = notes.find((note) => note.id === noteId);
-
-    if (note) {
-      res.render("note", { note });
-    } else {
-      res.status(404).render("404");
-    }
-  });
+  if (note) {
+    res.render("note", { note });
+  } else {
+    res.status(404).render("404");
+  }
 }
 
 function formHandler(_req, res) {
   res.render("new-note");
 }
 
-function createNoteHandler(req, res) {
-  console.log(req.body);
-  // lectura del notes.json
-  const fileContentPromise = fs.readFile("./src/notes.json", "utf8");
-  fileContentPromise
-    .then((content) => {
-      // parsear el contenido
-      const notes = JSON.parse(content);
-      // crear un nuevo objeto con la data enviada en el request
-      const noteId = notes.length + 1;
-      const noteContent = req.body["new-note"];
-      const newNote = { id: noteId, content: noteContent };
-      // agregar la nueva nota al arreglo
-      notes.push(newNote);
-      // sobrescribir el archivo json con el nuevo arreglo
-      return fs.writeFile("./src/notes.json", JSON.stringify(notes));
-    })
-    .then(() => {
-      res.redirect(303, "/notes");
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
+async function createNoteHandler(req, res) {
+  const notes = await getNotes();
+  const noteId = notes.length + 1;
+  const noteContent = req.body["new-note"];
+  const newNote = { id: noteId, content: noteContent };
+  notes.push(newNote);
+  await saveNotes(notes);
+  res.redirect(303, "/notes");
+}
+
+async function deleteNoteHandler(req, res) {
+  const notes = await getNotes();
+  const noteId = Number(req.params.id);
+  const position = notes.findIndex((note) => note.id === noteId);
+  notes.splice(position, 1);
+  await saveNotes(notes);
+  res.redirect(303, "/notes");
 }
 
 app.get("/", homeHandler);
@@ -73,6 +64,7 @@ app.get("/notes", notesHandler);
 app.get("/notes/:id", noteHandler);
 app.get("/new-note", formHandler);
 app.post("/notes", createNoteHandler);
+app.post("/notes/:id/delete", deleteNoteHandler);
 
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);

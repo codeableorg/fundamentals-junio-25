@@ -3,15 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      li {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px;
+      }
+    </style>
     <title>Notes</title>
   </head>
   <body>
     <h1>Notas</h1>
     <ul>
       <% notes.forEach((note) => { %>
-      <li><a href="/notes/<%=note.id%>"><%= note.content %></a></li>
+      <li>
+        <a href="/notes/<%=note.id%>"><%= note.content %></a>
+        <form action="/notes/<%=note.id%>/delete" method="post">
+          <button>Eliminar</button>
+        </form>
+      </li>
       <% }) %>
     </ul>
+
     <a href="/new-note">Crear nueva nota</a>
   </body>
 </html>
