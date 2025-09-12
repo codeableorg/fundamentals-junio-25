@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes | Edit</title>
+  </head>
+  <body>
+    <h1>Editar Nota</h1>
+    <form action="/notes/<%=note.id%>/update" method="post">
+      <div>
+        <label for="edit-note">Contenido:</label>
+        <input
+          id="edit-note"
+          type="text"
+          name="new-content"
+          value="<%=note.content%>"
+        />
+      </div>
+      <button>Actualizar</button>
+    </form>
+  </body>
+</html>
