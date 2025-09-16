@@ -1,10 +1,6 @@
 import { getNotes, saveNotes } from "./notesStorage.js";
 import { nanoid } from "nanoid";
 
-export function homeHandler(_req, res) {
-  res.render("index");
-}
-
 export async function notesHandler(_req, res) {
   const notes = await getNotes();
   const emptyMessage = "No tienes notas por ahora.";
@@ -23,8 +19,8 @@ export async function noteHandler(req, res) {
   }
 }
 
-export function formHandler(_req, res) {
-  res.render("new-note");
+export function newNoteHandler(_req, res) {
+  res.render("new");
 }
 
 export async function createNoteHandler(req, res) {
@@ -40,7 +36,7 @@ export async function createNoteHandler(req, res) {
 
 export async function deleteNoteHandler(req, res) {
   const notes = await getNotes();
-  const noteId = Number(req.params.id); // ?????
+  const noteId = req.params.id;
   const position = notes.findIndex((note) => note.id === noteId);
   notes.splice(position, 1);
   await saveNotes(notes);
