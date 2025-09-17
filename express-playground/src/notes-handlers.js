@@ -1,15 +1,15 @@
-import { getNotes, saveNotes } from "./notesStorage.js";
+import { saveNotes } from "./notes-storage.js";
 import { nanoid } from "nanoid";
 
-export async function notesHandler(_req, res) {
-  const notes = await getNotes();
+export function notesHandler(req, res) {
+  const notes = req.notes;
   const emptyMessage = "No tienes notas por ahora.";
   res.render("notes", { notes: notes, emptyMessage: emptyMessage });
 }
 
-export async function noteHandler(req, res) {
+export function noteHandler(req, res) {
+  const notes = req.notes;
   const noteId = req.params.id;
-  const notes = await getNotes();
   const note = notes.find((note) => note.id === noteId);
 
   if (note) {
@@ -24,10 +24,9 @@ export function newNoteHandler(_req, res) {
 }
 
 export async function createNoteHandler(req, res) {
-  const notes = await getNotes();
+  const notes = req.notes;
   const noteId = nanoid();
   const noteContent = req.body["new-note"];
-  // const createdAt = Date.now();
   const newNote = { id: noteId, content: noteContent };
   notes.push(newNote);
   await saveNotes(notes);
@@ -35,7 +34,7 @@ export async function createNoteHandler(req, res) {
 }
 
 export async function deleteNoteHandler(req, res) {
-  const notes = await getNotes();
+  const notes = req.notes;
   const noteId = req.params.id;
   const position = notes.findIndex((note) => note.id === noteId);
   notes.splice(position, 1);
@@ -43,17 +42,17 @@ export async function deleteNoteHandler(req, res) {
   res.redirect(303, "/notes");
 }
 
-export async function editNoteHandler(req, res) {
+export function editNoteHandler(req, res) {
+  const notes = req.notes;
   const noteId = req.params.id;
-  const notes = await getNotes();
   const note = notes.find((note) => note.id === noteId);
-  res.render("editform", { note });
+  res.render("edit", { note });
 }
 
 export async function updateNoteHandler(req, res) {
+  const notes = req.notes;
   const noteId = req.params.id;
   const newContent = req.body["new-content"];
-  const notes = await getNotes();
   const note = notes.find((note) => note.id === noteId);
   note.content = newContent;
   await saveNotes(notes);

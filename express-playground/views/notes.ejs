@@ -1,45 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      li {
-        display: flex;
-        justify-content: space-between;
-        margin: 5px;
-      }
+<%- include('top-html'); -%>
+<h1>Notas</h1>
 
-      .note-actions {
-        display: flex;
-        gap: 2px;
-      }
-    </style>
-    <title>Notes</title>
-  </head>
-  <body>
-    <h1>Notas</h1>
+<% if (notes.length === 0) { %>
+<p><%= emptyMessage %></p>
+<% } else { %>
+<ul>
+  <% notes.forEach((note) => { %>
+  <li>
+    <a href="/notes/<%=note.id%>"><%= note.content %></a>
+    <div class="note-actions">
+      <form action="/notes/<%=note.id%>/delete" method="post">
+        <button>Eliminar</button>
+      </form>
+      <form action="/notes/<%=note.id%>/edit">
+        <button>Editar</button>
+      </form>
+    </div>
+  </li>
+  <% }) %>
+</ul>
+<% } %>
 
-    <% if (notes.length === 0) { %>
-    <p><%= emptyMessage %></p>
-    <% } else { %>
-    <ul>
-      <% notes.forEach((note) => { %>
-      <li>
-        <a href="/notes/<%=note.id%>"><%= note.content %></a>
-        <div class="note-actions">
-          <form action="/notes/<%=note.id%>/delete" method="post">
-            <button>Eliminar</button>
-          </form>
-          <form action="/notes/<%=note.id%>/edit">
-            <button>Editar</button>
-          </form>
-        </div>
-      </li>
-      <% }) %>
-    </ul>
-    <% } %>
-
-    <a href="/notes/new">Crear nueva nota</a>
-  </body>
-</html>
+<a href="/notes/new">Crear nueva nota</a>
+<%- include('bottom-html'); -%>

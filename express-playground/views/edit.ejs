@@ -1,0 +1,15 @@
+<%- include('top-html'); -%>
+<h1>Editar Nota</h1>
+<form action="/notes/<%=note.id%>/update" method="post">
+  <div>
+    <label for="edit-note">Contenido:</label>
+    <input
+      id="edit-note"
+      type="text"
+      name="new-content"
+      value="<%=note.content%>"
+    />
+  </div>
+  <button>Actualizar</button>
+</form>
+<%- include('bottom-html'); -%>
