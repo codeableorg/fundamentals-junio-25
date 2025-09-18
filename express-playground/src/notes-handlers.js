@@ -4,7 +4,12 @@ import { nanoid } from "nanoid";
 export function notesHandler(req, res) {
   const notes = req.notes;
   const emptyMessage = "No tienes notas por ahora.";
-  res.render("notes", { notes: notes, emptyMessage: emptyMessage });
+  const title = "Notas";
+  res.render("notes", {
+    notes,
+    emptyMessage,
+    title,
+  });
 }
 
 export function noteHandler(req, res) {
@@ -13,14 +18,14 @@ export function noteHandler(req, res) {
   const note = notes.find((note) => note.id === noteId);
 
   if (note) {
-    res.render("note", { note });
+    res.render("note", { note, title: "Notas | Detalle" });
   } else {
-    res.status(404).render("404");
+    res.status(404).render("404", { title: "Notas | Error" });
   }
 }
 
 export function newNoteHandler(_req, res) {
-  res.render("new");
+  res.render("new", { title: "Notas | Nueva nota" });
 }
 
 export async function createNoteHandler(req, res) {
@@ -46,7 +51,7 @@ export function editNoteHandler(req, res) {
   const notes = req.notes;
   const noteId = req.params.id;
   const note = notes.find((note) => note.id === noteId);
-  res.render("edit", { note });
+  res.render("edit", { note, title: "Notas | Editar" });
 }
 
 export async function updateNoteHandler(req, res) {

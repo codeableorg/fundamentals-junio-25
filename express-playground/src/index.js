@@ -8,10 +8,10 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true })); // req.body
 app.use(express.static("./public"));
 app.use(expressEjsLayouts);
-// app.set('layout', 'layouts/layout');
+app.set("layout", "layout");
 
 // Routing
-app.get("/", (_req, res) => res.render("index")); // home
+app.get("/", (_req, res) => res.render("index", { title: "Notas | Inicio" })); // home
 app.use("/notes", notesRouter); // notas
 
 // Error-Handling Middleware
